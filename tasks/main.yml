@@ -4,6 +4,7 @@
     repo='ppa:webupd8team/java'
     state=present
     update_cache=yes
+  become: yes
 
 - name: Accept Oracle license
   debconf:
@@ -11,14 +12,17 @@
     question=shared/accepted-oracle-license-v1-1
     vtype=select
     value=true
+  become: yes
 
 - name: Install OracleJDK package
   apt:
     name={{ oraclejdk_package }}
     state=present
+  become: yes
 
 - name: Set default JDK
   apt:
     name={{ oraclejdk_package | regex_replace('^.*([0-9]).*$', 'oracle-java\\1-set-default') }}
     state=present
   when: oraclejdk_set_as_default
+  become: yes
