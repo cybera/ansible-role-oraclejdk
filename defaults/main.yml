@@ -4,3 +4,4 @@ oraclejdk_package: oracle-java{{ oraclejdk_java_ver }}-installer
 oraclejdk_jce_package: oracle-java{{ oraclejdk_java_ver }}-unlimited-jce-policy
 oraclejdk_set_as_default: true
 oraclejdk_install_jce: true
+oraclejdk_set_urandom: true

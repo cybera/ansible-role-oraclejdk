@@ -28,6 +28,10 @@ Role Variables
 
   Option to install or not install the Java Cryptographic Extension package. (Default is `true`)
 
+* `oraclejdk_set_urandom`
+
+  Option to set urandom as your random generator to avoid JVM delays. (Default is `true`)
+
 Actions role
 ------------
 

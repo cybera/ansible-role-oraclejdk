@@ -24,7 +24,7 @@
   apt:
     name={{ oraclejdk_jce_package }}
     state=present
-  when: oraclejdk_install_jce == true
+  when: oraclejdk_install_jce
   become: yes
 
 - name: Set default JDK
@@ -32,4 +32,12 @@
     name={{ oraclejdk_package | regex_replace('^.*([0-9]).*$', 'oracle-java\\1-set-default') }}
     state=present
   when: oraclejdk_set_as_default
+  become: yes
+
+- name: Use /dev/urandom for Java random source
+  lineinfile:
+    dest={{ ansible_env['JAVA_HOME'] }}/jre/lib/security/java.security
+    regexp="^\s*securerandom.source"
+    line="securerandom.source=file:/dev/urandom"
+  when: oraclejdk_set_urandom
   become: yes
