@@ -6,7 +6,7 @@ Installs OracleJDK from WebUpd8 team's PPA (http://www.webupd8.org/2012/09/insta
 Role Variables
 --------------
 
-* `oraclejdk_java_ver` (default is `8`)
+* `oraclejdk_java_ver`
 
   Version of Java to install (default is `8`)
 
