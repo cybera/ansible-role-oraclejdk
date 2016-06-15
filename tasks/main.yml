@@ -24,6 +24,7 @@
   apt:
     name={{ oraclejdk_jce_package }}
     state=present
+  when: oraclejdk_install_jce == true
   become: yes
 
 - name: Set default JDK
