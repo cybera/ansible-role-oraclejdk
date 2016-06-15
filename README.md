@@ -39,7 +39,7 @@ Actions role
 How to install
 --------------
 
-    ansible-galaxy install php-coder.oraclejdk
+    ansible-galaxy install cybera.oraclejdk
 
 For more installation's options/variants read the documentation: http://docs.ansible.com/galaxy.html
 
@@ -50,19 +50,19 @@ Example of usage with default parameters:
 
     - hosts: all
       roles:
-         - php-coder.oraclejdk
+         - cybera.oraclejdk
 
 Example of usage to install OracleJDK 7:
 
     - hosts: all
       roles:
-         - { role: php-coder.oraclejdk, oraclejdk_package: 'oracle-java7-installer' }
+         - { role: cybera.oraclejdk, oraclejdk_package: 'oracle-java7-installer' }
 
-Example of usage to install OracleJDK 9:
+Example of usage to install OracleJDK 9 without Java Cryptographic Extension:
 
     - hosts: all
       roles:
-         - { role: php-coder.oraclejdk, oraclejdk_java_ver: 9 }
+         - { role: cybera.oraclejdk, oraclejdk_java_ver: 9, oraclejdk_install_jce: false}
 
 License
 -------
