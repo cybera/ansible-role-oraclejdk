@@ -58,6 +58,12 @@ Example of usage to install OracleJDK 7:
       roles:
          - { role: php-coder.oraclejdk, oraclejdk_package: 'oracle-java7-installer' }
 
+Example of usage to install OracleJDK 9:
+
+    - hosts: all
+      roles:
+         - { role: php-coder.oraclejdk, oraclejdk_java_ver: 9 }
+
 License
 -------
 
@@ -67,3 +73,4 @@ Author Information
 ------------------
 
 Slava Semushin (slava.semushin@gmail.com)
+JCE Additions by Andrew Klaus (andrewklaus@gmail.com)
