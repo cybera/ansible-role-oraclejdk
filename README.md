@@ -6,15 +6,27 @@ Installs OracleJDK from WebUpd8 team's PPA (http://www.webupd8.org/2012/09/insta
 Role Variables
 --------------
 
+* `oraclejdk_java_ver` (default is `8`)
+
+  Version of Java to install (default is `8`)
+
 * `oraclejdk_package`
 
   Name of package to install (default is `oracle-java8-installer`).
+
+* `oraclejdk_jce_package`
+
+  Name of Java Cryptographic Extension package to install (default is `oracle-java8-unlimited-jce-policy`
 
 * `oraclejdk_set_as_default`
 
   Setting JDK as default JDK. When this parameter is set to `true` then alternatvies will be updated
   and environment variables like `JAVA_HOME` will be changed. In reality it just installs
   appropriate `oracle-javaX-set-default` package. (Default is `true`).
+
+* `oraclejdk_install_jce`
+
+  Option to install or not install the Java Cryptographic Extension package. (Default is `true`)
 
 Actions role
 ------------
