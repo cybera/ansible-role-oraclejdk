@@ -20,6 +20,12 @@
     state=present
   become: yes
 
+- name: Install OracleJDK JCE Unlimited
+  apt:
+    name={{ oraclejdk_jce_package }}
+    state=present
+  become: yes
+
 - name: Set default JDK
   apt:
     name={{ oraclejdk_package | regex_replace('^.*([0-9]).*$', 'oracle-java\\1-set-default') }}

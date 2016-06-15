@@ -1,3 +1,5 @@
 ---
-oraclejdk_package: oracle-java8-installer
+oraclejdk_java_ver: 8
+oraclejdk_package: oracle-java{{ oraclejdk_jver }}-installer
+oraclejdk_jce_package: oracle-java{{ oraclejdk_jver }}-unlimited-jce-policy
 oraclejdk_set_as_default: true
