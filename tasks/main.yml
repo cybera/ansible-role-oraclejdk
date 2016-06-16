@@ -34,9 +34,16 @@
   when: oraclejdk_set_as_default
   become: yes
 
+- name: Get JAVA_HOME var from login shell
+  command: /bin/sh -l -c "echo $JAVA_HOME"
+  register: env_o
+
+- name: Set JAVA_HOME ansible var
+  set_fact: oraclejdk_java_home={{ env_o.stdout }}
+
 - name: Use /dev/urandom for Java random source
   lineinfile:
-    dest={{ ansible_env['JAVA_HOME'] }}/jre/lib/security/java.security
+    dest={{ oraclejdk_java_home }}/jre/lib/security/java.security
     regexp="^\s*securerandom.source"
     line="securerandom.source=file:/dev/urandom"
   when: oraclejdk_set_urandom
