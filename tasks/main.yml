@@ -4,7 +4,7 @@
     repo: 'ppa:webupd8team/java'
     state: present
     update_cache: yes
-    become: yes
+  become: yes
 
 - name: Accept Oracle license
   debconf:
@@ -22,7 +22,7 @@
 
 - name: Install OracleJDK JCE Unlimited
   apt:
-    name: {{ oraclejdk_jce_package }}
+    name: "{{ oraclejdk_jce_package }}"
     state: present
   when: oraclejdk_install_jce
   become: yes
@@ -37,14 +37,15 @@
 - name: Get JAVA_HOME var from login shell
   command: /bin/sh -l -c "echo $JAVA_HOME"
   register: env_o
+  changed_when: no
 
 - name: Set JAVA_HOME ansible var
   set_fact: oraclejdk_java_home={{ env_o.stdout }}
 
 - name: Use /dev/urandom for Java random source
   lineinfile:
-    dest: {{ oraclejdk_java_home }}/jre/lib/security/java.security
-    regexp: "^\s*securerandom.source="
+    dest: "{{ oraclejdk_java_home }}/jre/lib/security/java.security"
+    regexp: '^\s*securerandom.source='
     line: "securerandom.source=file:/dev/urandom"
   when: oraclejdk_set_urandom
   become: yes
