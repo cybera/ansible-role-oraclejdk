@@ -3,7 +3,7 @@ galaxy_info:
   author: Slava Semushin
   description: Installs OracleJDK from WebUpd8 team's PPA
   license: GPLv2
-  # required by debconf module
+  # required by become module
   min_ansible_version: 1.9
   platforms:
   - name: Ubuntu
