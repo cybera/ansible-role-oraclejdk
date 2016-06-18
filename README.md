@@ -78,4 +78,4 @@ Author Information
 
 Slava Semushin (slava.semushin@gmail.com)
 
-JCE Additions by Andrew Klaus (andrewklaus@gmail.com)
+Andrew Klaus (andrewklaus@gmail.com) - Added Java JCE Additions and `become` module use

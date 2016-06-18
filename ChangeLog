@@ -1,3 +1,12 @@
+v1.5
+- Pulled in php-coder's v1.2 changes
+
+v1.4
+- Now gets JAVA_HOME from login shell to use in role
+
+v1.3
+- Adding support to set /dev/urandom to save JVM startup time
+
 1.2-cybera
 - Using `become` module for elevation (Ansible 1.9+)
 - Adding Java Cryptography Extension (JCE) Unlimited Strength
