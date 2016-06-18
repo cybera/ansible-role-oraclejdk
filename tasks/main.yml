@@ -22,8 +22,8 @@
 
 - name: Install OracleJDK JCE Unlimited
   apt:
-    name={{ oraclejdk_jce_package }}
-    state=present
+    name: {{ oraclejdk_jce_package }}
+    state: present
   when: oraclejdk_install_jce
   become: yes
 
@@ -43,8 +43,8 @@
 
 - name: Use /dev/urandom for Java random source
   lineinfile:
-    dest={{ oraclejdk_java_home }}/jre/lib/security/java.security
-    regexp="^\s*securerandom.source"
-    line="securerandom.source=file:/dev/urandom"
+    dest: {{ oraclejdk_java_home }}/jre/lib/security/java.security
+    regexp: "^\s*securerandom.source="
+    line: "securerandom.source=file:/dev/urandom"
   when: oraclejdk_set_urandom
   become: yes
